@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>YourWeather++</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="md:bg-[url('./img/bg.jpg')] bg-fill overflow-x-hidden" id="body">
+    <div id="header" class="bg-[#FFE899] h-[120px] w-[100vw] flex flex-row items-center justify-between relative border-solid border-black border-b-[3px] z-20">
+        <div id="img" class="mr-[100px] ml-[20px]">
+            <a href="index.html">
+                <img src="./img/logo.png" alt="" srcset="" class="max-h-[110px]">
+            </a>
+        </div>
+        <img src="./img/Menu.png" alt="" srcset="" class="max-h-[65px] absolute right-[10px] md:right-[100px] z-10" id="menubtn">
+    </div>
+    <div class="absolute border-solid border-l-[3px] md:border-black/[.50] right-[-1000px] w-[100%] top-0 md:w-[25%] h-[100%] bg-[#FFE899] flex flex-col items-center z-10" id="menu">
+        <svg class="absolute right-4 top-[130px]" width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg" id="close-x">
+            <path d="M7.0051 0L0 7.0051L3.57707 10.5822L12.4204 19.5745L3.57707 28.4178L0 31.8459L7.0051 39L10.5822 35.4229L19.5745 26.4306L28.4178 35.4229L31.8459 39L39 31.8459L35.4229 28.4178L26.4306 19.5745L35.4229 10.5822L39 7.0051L31.8459 0L28.4178 3.57707L19.5745 12.4204L10.5822 3.57707L7.0051 0Z" fill="#023047" fill-opacity="0.9"/>
+        </svg>
+        <div class="absolute top-[230px] left-[50px] flex flex-col text-[45px]">
+            <a href="index.html">Heute</a>
+            <a href="subPages/tomorrow.html">Morgen</a>
+            <a href="subPages/threeDays.html">3-Tage</a>
+            <a href="subPages/lastWeek.html">Letzte Woche</a>
+        </div>
+    </div>
+    <div id="main" class="bg-[url('./img/bg-small.jpg')] md:bg-none h-max w-[100vw] flex flex-col items-center relative">
+        <div id="searchbar" class="w-[90vw] md:w-[30vw] h-[5vh] min-h-[50px] bg-white flex justify-between items-center pl-4 pr-4 mt-10 rounded-[50px]  border-solid border-black border-[2px]">
+            <input type="text" class="w-[60vw] md:w-[20vw] h-[4vh] min-h-[40px] text-[30px]" placeholder="Suche (Ort)" id="input">
+            <img src="./img/search.png" alt="" srcset="" class="max-h-[30px]">
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-xl px-4 absolute mt-8 w-[90vw] md:w-[30vw] border-solid border-black border-[2px] top-[80px] z-10 hidden" id="autocomplete">
+            
+            <div class="py-6 flex items-center w-full hover:bg-gray-50">
+                <a href="#" class="flex-1">
+                    <div class="text-gray-400 text-base">Profile</div>
+                </a>
+                <div>
+                    <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="py-6 flex items-center w-full border-t border-gray-200 hover:bg-gray-50">
+                <a href="#" class="flex-1">
+                    <div class="text-gray-400 text-base">Status (Online)</div>
+                </a>
+                <div>
+                    <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="py-6 flex items-center w-full border-t border-gray-200 hover:bg-gray-50">
+                <a href="#" class="flex-1">
+                    <div class="text-gray-400 text-base">Notifications</div>
+                </a>
+                <div>
+                    <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="py-6 flex items-center w-full hover:bg-gray-50 border-t border-gray-200 hover:bg-gray-50">
+                <a href="#" class="flex-1">
+                    <div class="text-gray-400 text-base">Sign out</div>
+                </a>
+                <div>
+                    <svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />
+                        <line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+        
+        
+        <div id="data" class="bg-white h-max w-[90vw] md:w-[70vw] rounded-[20px] m-10 border-solid border-black border-[2px] flex flex-col relative">
+            <div class="absolute right-5 top-0 text-[30px] font-black md:hidden">Heute</div>
+            <div id="dayanddate" class="flex flex-col items-center text-[40px] font-extrabold self-center">
+                <div id="day" class="text-[40px] hidden md:inline">Heute, Do</div>
+                <div id="date" class="text-[40px] hidden md:inline">1.12.2023</div>
+            </div>
+            <div id="place" class="text-[30px] p-4 md:absolute md:left-[10px]">
+                <div id="region" class="font-bold">Vorarlberg</div>
+                <div id="city" class="">Alberschwende</div>
+            </div>
+            <div>
+                <div id="prim-inf" class="mt-2 ml-10 relative flex items-center">
+                    <div>
+                        <div id="temp" class="font-extrabold text-[40px]">9°</div>
+                        <div id="maxmin" class="text-[30px]">8°/16°</div>
+                    </div>
+                    <div id="img" class="absolute right-10 md:right-[5vw]">
+                        <img src="./img/sun.png" alt="" class="md:w-[25vw] max-w-[250px]">
+                    </div>
+                </div>
+            </div>
+            <div id="sec-inf" class="ml-5 md:ml-10 text-[25px] pt-4 pb-6 font-semibold">
+                <div id="rain" class="flex items-center ">
+                    <img src="./img/rain.png" alt="" class="md:hidden w-[15vw] min-w-[60px] max-w-[60px] mr-4">
+                    <div class="">
+                        <div class="hidden md:inline">Niederschlag: </div>
+                        0 mm/h
+                    </div>
+                </div>
+                <div id="wind" class="flex items-center ">
+                    <img src="./img/wind.png" alt="" class="md:hidden w-[15vw] min-w-[60px] max-w-[60px]  mr-4">
+                    <div class="">
+                        <div class="hidden md:inline">Wind: </div>
+                        0 km/h
+                    </div>
+                </div>
+                <div id="humidity" class="flex items-center ">
+                    <img src="./img/humidity.png" alt="" class="md:hidden w-[15vw] min-w-[60px] max-w-[60px]  mr-4">
+                    <div class="">
+                        <div class="hidden md:inline">Luftfeuchtigkeit: </div>
+                        40%
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="daysforecast" class="bg-white h-max w-[90vw] md:w-[70vw] rounded-[20px] mb-4 border-solid border-black border-[2px] flex items-center relative overflow-hidden">
+            <div class="flex overflow-x-auto h-max m-1">
+                <div class="flex flex-row h-max" id="hour-list">
+                    <div class="bg-[#8ECAE6] h-max w-[100px] m-4 rounded-[10px] border-solid border-black border-[1px] p-1 flex flex-col items-center hover:drop-shadow-lg">
+                        <div >8 Uhr</div>
+                        <div class="font-bold">12°</div>
+                        <div><img src="./img/sun.png" alt="" class="w-[16vw] max-w-[65px] md:w-[4vw]"></div>
+                        <div class="text-[15px]">40%</div>
+                    </div>
+                    
+                </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

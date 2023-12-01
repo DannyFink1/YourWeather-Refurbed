@@ -1,0 +1,27 @@
+* {
+    font-family: 'Lato', sans-serif;
+    color: #023047;
+}
+
+#autocomplete {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+#autocomplete::-webkit-scrollbar {
+    display: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+body, html{
+    overflow-x: hidden;
+}
+
+
+
+
