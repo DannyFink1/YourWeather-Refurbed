@@ -3,19 +3,34 @@ getHourData("Dornbirn");
 
 
 
-document.getElementById("input").addEventListener('keypress', function(event) {
+document.getElementById("input").addEventListener('keyup', function(event) {
+
     let value = document.getElementById("input").value;
-    if (event.key === "Enter") {
+    console.log("jop", value[value.length-1]);
+    if (event.keyCode === 13) {
 
         getWeatherToday(value);
         getHourData(value);
+        this.blur();
     }
+    if (value[value.length-1] == "?")
+    {
+        value = value.split('?');
+        console.log(value);
+        getAutocomplete(value);
+    }
+    
+})
+
+document.getElementById("searchIcon").addEventListener('click', function(event) {
+    let value = document.getElementById("input").value;
+    getWeatherToday(value);
+    getHourData(value);
 })
 
 document.getElementById("input").addEventListener("keyup", (e)=>{
     let value = document.getElementById("input").value;
-    console.log("value", value);
-    getAutocomplete(value);
+  
 });
 
 var autocompleteTimeout;
@@ -25,23 +40,19 @@ document.getElementById("input").addEventListener("click",(event)=>{
 });
 
 document.getElementById("input").addEventListener('blur', function(event) {
-    console.log("moin")
-    // Verzögert das Ausblenden des autocomplete-Elements
     autocompleteTimeout = setTimeout(function() {
-        console.log("blur");
         document.getElementById("autocomplete").style.display= "none";
     }, 1);
 });
 
 document.getElementById("autocomplete").addEventListener('mousedown', function(event) {
-    // Verhindert das Auslösen des blur-Events und behält den Fokus im Input-Feld
     clearTimeout(autocompleteTimeout);
     event.preventDefault();
+    document.getElementById("input").blur();
 });
 
 document.getElementById("menubtn").addEventListener("click", function(event) {
     document.getElementById("menu").style = "display: inline; right: 0; transition: right 0.3s ease-in-out;";
-
 });
 
 document.addEventListener("click", function(event) {
@@ -64,7 +75,9 @@ function getWeatherToday(value){
     .then(response =>{
         console.log("Today", response);
         changeData(response);
-    });
+    }).catch(error =>{
+        alert("Stadt nicht gefunden!");
+    })
 }
 
 function getHourData(value){
@@ -73,7 +86,19 @@ function getHourData(value){
     .then(response =>{
         console.log("Hourly", response);
         changeHourDate(response);
-    });
+    })
+}
+
+function getWeatherByCoords(lat,lon){
+    fetch('https://api.weatherapi.com/v1/current.json?&key=5fa2dd3419924cd88d871245231710&q=' + lat + "," + lon)
+    .then(response => response.json())
+    .then(response =>{
+        console.log("Today through autocomplete", response);
+        changeData(response);
+    }).catch(error =>{
+        alert("Stadt nicht gefunden!");
+    })
+
 }
 
 function changeData(data){
@@ -146,23 +171,23 @@ function getAutocomplete(value){
     fetch("https://api.geoapify.com/v1/geocode/autocomplete?text="+ value +"&type=city&format=json&apiKey=2c9b4a0d91734167acac6edcb58a8f41")
         .then(response => response.json())
         .then(result => {
-            console.log(result);
+            console.log(result)
             output = "";
             if(result.results.length != 0)
             {
                 result.results.forEach((element, index)=>{
-                    output += '<div class="py-6 flex items-center w-full border-t border-gray-200 hover:bg-gray-50">'+
+                    output += '<div class="py-6 flex items-center w-full border-t border-gray-200 hover:bg-gray-50" id="ac-'+ index +'">'+
                                 '<a href="#" class="flex-1">'+
-                        '<div class="text-gray-400 text-base">'+ element.city + ", " + element.country +'</div>'+
-                    '</a>'+
-                    '<div>'+
-                        '<svg width="40" height="20" viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg">'+
-                            '<line x1="30" y1="2" x2="40" y2="10" stroke="#9CA3AF" />'+
-                            '<line x1="30" y1="18" x2="40" y2="10" stroke="#9CA3AF" />'+
-                            '<line x1="20" y1="10" x2="40" y2="10" stroke="#9CA3AF" />'+
-                        '</svg>'+
-                    '</div>'+
-                '</div>';
+                                    '<div class="text-gray-800 text-base" onclick="getWeatherByCoords('+ element.lat+','+ element.lon +')">'+ element.city + ", " + element.country +'</div>'+
+                                '</a>'+
+                                '<div>'+
+                                    '<a href="https://www.google.at/maps/place/'+ element.city +'+'+ element.country +'" target="_blank">'+
+                                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">'+
+                                            '<path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />'+
+                                        '</svg>'+
+                                    '</a>'+
+                                '</div>'+
+                               '</div>';
                 });
                 document.getElementById("autocomplete").innerHTML = output;
             }
