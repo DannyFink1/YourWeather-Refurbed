@@ -11,7 +11,6 @@ document.getElementById("input").addEventListener('keyup', function(event) {
 
         getWeatherToday(value);
         getHourData(value);
-        this.blur();
     }
     if (value[value.length-1] == "?")
     {
@@ -149,6 +148,7 @@ function changeData(data){
                 '</div>'+
             '</div>';
     document.getElementById("data").innerHTML = output;
+    document.getElementById("date").innerHTML = getTodayDateMinus();
 }
 
 function changeHourDate(data){
@@ -164,6 +164,8 @@ function changeHourDate(data){
         '</div>';
     });
     document.getElementById("hour-list").innerHTML = output;   
+    document.getElementById("maxmin").innerHTML =  findMinAndMaxTemp(c).minTemp + "°/" + findMinAndMaxTemp(c).maxTemp + "°" ;
+
 }
 
 function getAutocomplete(value){
@@ -205,4 +207,26 @@ function getTodayDateMinus() {
     const formattedMonth = month < 10 ? "0" + month : month;
     const formattedDate = `${year}-${formattedMonth}-${formattedDay}`;
     return formattedDate;
+}
+
+function findMinAndMaxTemp(data) {
+
+
+    let minTemp = data[0].temp_c;
+    let maxTemp = data[0].temp_c;
+
+    data.forEach((data,index) =>{
+        const temp = data.temp_c;
+        console.log("out");
+        if (temp < minTemp) {
+            minTemp = temp;
+            console.log("out1");
+        }
+
+        if (temp > maxTemp) {
+            maxTemp = temp;
+            console.log("out2");
+        }
+    });
+    return { minTemp, maxTemp };
 }
