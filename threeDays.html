@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>YourWeather++</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./js/tomorrow.js" defer></script>
+    <script src="./js/threeDays.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body class="md:bg-[url('./img/bg.jpg')] bg-fill relative overflow-x-hidden" id="body">
+<body class="md:bg-[url('./img/bg.jpg')] bg-fill min-h-[100vh] relative overflow-x-hidden" id="body">
     <div id="header" class="bg-[#FFE899] h-[120px] w-[100vw] flex flex-row items-center justify-between relative border-solid border-black border-b-[3px] z-20">
         <div id="img" class="mr-[100px] ml-[20px]">
             <a href="index.html">
@@ -30,7 +30,7 @@
             <a href="threeDays.html">3-Tage</a>
         </div>
     </div>
-    <div id="main" class="bg-[url('./img/bg-small.jpg')] md:bg-none h-[100%] w-[100vw] flex flex-col items-center relative">
+    <div id="main" class="bg-[url('./img/bg-small.jpg')] md:bg-none h-[100%] min-h-[100vh] md:min-h-0 w-[100vw] flex flex-col items-center relative">
         <div id="searchbar" class="w-[90vw] md:w-[30vw] h-[5vh] min-h-[50px] bg-white flex justify-between items-center pl-4 pr-4 mt-10 rounded-[50px]  border-solid border-black border-[2px]">
             <input type="text" class="w-[60vw] md:w-[20vw] h-[4vh] min-h-[40px] text-[30px]" placeholder="Suche (Ort)" id="input">
             <img src="./img/search.png" alt="" srcset="" class="max-h-[30px]" id="searchIcon">
@@ -68,7 +68,7 @@
     
         
         
-    </div>
+        </div>
     </div>
 </body>
 </html>

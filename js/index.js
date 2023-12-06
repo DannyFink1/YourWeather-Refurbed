@@ -209,6 +209,8 @@ function getTodayDateMinus() {
     return formattedDate;
 }
 
+
+
 function findMinAndMaxTemp(data) {
 
 

@@ -144,19 +144,19 @@ function changeData(data){
     var data = '<div id="morning" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">' +
     '<div class="flex items-center">' +
         '<div class="flex flex-row">' +
-            '<div class="text-[50px] font-bold">'+ m.temp_c +'°</div>' +
+            '<div class="text-[40px] md:text-[50px] font-bold">'+ m.temp_c +'°</div>' +
             '<div class="text-[15px] font-bold hidden md:inline self-start">'+ others[3].temp_c +'°/'+ others[9].temp_c +'</div>' +
         '</div>' +
     '</div>' +
     '<div class="flex flex-col justify-center">' +
         '<div class="flex">' +
-            '<img src="./img/rain.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Niederschlag</div>' +
+            '<img src="'+ m.condition.icon +'" alt="" class="w-[30px]">' +
+            '<div class="hidden lg:inline">&nbsp Niederschlag:</div>' +
             '<div> &nbsp'+ m.precip_mm +' mm/h</div>' +
         '</div>' +
         '<div class="flex">' +
             '<img src="./img/humidity.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>' +
+            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit:</div>' +
             '<div> &nbsp'+ m.humidity +'%</div>' +
         '</div>' +
     '</div>' +
@@ -168,19 +168,19 @@ function changeData(data){
 '<div id="noon" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">' +
     '<div class="flex items-center">' +
         '<div class="flex flex-row">' +
-            '<div class="text-[50px] font-bold">'+ n.temp_c +'°</div>' +
+            '<div class="text-[40px] md:text-[50px] font-bold">'+ n.temp_c +'°</div>' +
             '<div class="text-[15px] font-bold hidden md:inline self-start">'+ others[10].temp_c +'°/'+ others[15].temp_c +'</div>' +
         '</div>' +
     '</div>' +
     '<div class="flex flex-col justify-center">' +
         '<div class="flex">' +
             '<img src="./img/rain.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Niederschlag</div>' +
+            '<div class="hidden lg:inline">&nbsp Niederschlag:</div>' +
             '<div> &nbsp'+ n.precip_mm +' mm/h</div>' +
         '</div>' +
         '<div class="flex">' +
             '<img src="./img/humidity.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>' +
+            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit:</div>' +
             '<div> &nbsp'+ n.humidity +'%</div>' +
         '</div>' +
     '</div>' +
@@ -192,19 +192,19 @@ function changeData(data){
 '<div id="afternoon" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">' +
     '<div class="flex items-center">' +
         '<div class="flex flex-row">' +
-            '<div class="text-[50px] font-bold">'+ a.temp_c +'°</div>' +
+            '<div class="text-[40px] md:text-[50px] font-bold">'+ a.temp_c +'°</div>' +
             '<div class="text-[15px] font-bold hidden md:inline self-start">'+ others[16].temp_c +'°/'+ others[19].temp_c +'</div>' +
         '</div>' +
     '</div>' +
     '<div class="flex flex-col justify-center">' +
         '<div class="flex">' +
             '<img src="./img/rain.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Niederschlag</div>' +
+            '<div class="hidden lg:inline">&nbsp Niederschlag:</div>' +
             '<div> &nbsp'+ a.precip_mm +' mm/h</div>' +
         '</div>' +
         '<div class="flex">' +
             '<img src="./img/humidity.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>' +
+            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit:</div>' +
             '<div> &nbsp'+ a.humidity +'%</div>' +
         '</div>' +
     '</div>' +
@@ -216,19 +216,19 @@ function changeData(data){
 '<div id="evening" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">' +
     '<div class="flex items-center">' +
         '<div class="flex flex-row">' +
-            '<div class="text-[50px] font-bold">'+ e.temp_c +'°</div>' +
+            '<div class=text-[40px] md:"text-[50px] font-bold">'+ e.temp_c +'°</div>' +
             '<div class="text-[15px] font-bold hidden md:inline self-start">'+ others[20].temp_c +'°/'+ others[23].temp_c +'</div>' +
         '</div>' +
     '</div>' +
     '<div class="flex flex-col justify-center">' +
         '<div class="flex">' +
             '<img src="./img/rain.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Niederschlag</div>' +
+            '<div class="hidden lg:inline">&nbsp Niederschlag:</div>' +
             '<div> &nbsp'+ e.precip_mm +' mm/h</div>' +
         '</div>' +
         '<div class="flex">' +
             '<img src="./img/humidity.png" alt="" class="w-[30px]">' +
-            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>' +
+            '<div class="hidden lg:inline">&nbsp Luftfeuchtigkeit:</div>' +
             '<div> &nbsp'+ e.humidity +'%</div>' +
         '</div>' +
     '</div>' +
