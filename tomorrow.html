@@ -52,91 +52,119 @@
 
         </div>
         
-        
-        <div id="title" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-10 border-solid border-black border-[2px] flex flex-col relative">
-            <div class="absolute right-5 top-0 text-[30px] font-black md:hidden">Heute</div>
-                <div id="dayanddate" class="flex flex-col items-center text-[40px] font-extrabold self-center">
-                    <div id="day" class="text-[40px] hidden md:inline">Heute, Do</div>
-                    <div id="date" class="text-[40px] hidden md:inline">1.12.2023</div>
-                </div>
-                <div id="place" class="text-[30px] p-4 md:absolute md:left-[10px]">
-                    <div id="region" class="font-bold">Vorarlberg</div>
-                    <div id="city" class="">Alberschwende</div>
-                </div>
-        </div>
-        <div id="morning" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">
-            <div class=" flex flex-col justify-center">
-                <div class="text-[50px] font-bold">9°</div>
+        <div id="title">
+            <div class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-10 border-solid border-black border-[2px] flex flex-col relative">
+                <div class="absolute right-5 top-0 text-[30px] font-black md:hidden">Heute</div>
+                    <div id="dayanddate" class="flex flex-col items-center text-[40px] font-extrabold self-center">
+                        <div id="day" class="text-[40px] hidden md:inline">Heute, Do</div>
+                        <div id="date" class="text-[40px] hidden md:inline">1.12.2023</div>
+                    </div>
+                    <div id="place" class="text-[30px] p-4 md:absolute md:left-[10px]">
+                        <div id="region" class="font-bold">Vorarlberg</div>
+                        <div id="city" class="">Alberschwende</div>
+                    </div>
             </div>
-            <div class="flex flex-col justify-center">
-                <div class="flex">
-                    <img src="./img/rain.png" alt="" class="w-[30px]">: 40 mm/h
-                </div>
-                <div class="flex">
-                    <img src="./img/humidity.png" alt="" class="w-[30px]">: 40%
-                </div>
-            </div>
-            <div class="flex flex-col items-center">
-                <div class="text-[25px] font-black">Morgens</div>
-                <img src="./img/sun.png" alt="" srcset="" class="w-[60px]">
-            </div>
-        </div>
-        <div id="morning" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">
-            <div class=" flex flex-col justify-center">
-                <div class="text-[50px] font-bold">9°</div>
-            </div>
-            <div class="flex flex-col justify-center">
-                <div class="flex">
-                    <img src="./img/rain.png" alt="" class="w-[30px]">: 40 mm/h
-                </div>
-                <div class="flex">
-                    <img src="./img/humidity.png" alt="" class="w-[30px]">: 40%
-                </div>
-            </div>
-            <div class="flex flex-col items-center">
-                <div class="text-[25px] font-black">Morgens</div>
-                <img src="./img/sun.png" alt="" srcset="" class="w-[60px]">
-            </div>
-        </div>
-        
-        <div id="morning" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">
-            <div class=" flex flex-col justify-center">
-                <div class="text-[50px] font-bold">9°</div>
-            </div>
-            <div class="flex flex-col justify-center">
-                <div class="flex">
-                    <img src="./img/rain.png" alt="" class="w-[30px]">: 40 mm/h
-                </div>
-                <div class="flex">
-                    <img src="./img/humidity.png" alt="" class="w-[30px]">: 40%
-                </div>
-            </div>
-            <div class="flex flex-col items-center">
-                <div class="text-[25px] font-black">Morgens</div>
-                <img src="./img/sun.png" alt="" srcset="" class="w-[60px]">
-            </div>
-        </div>
+    </div>
+        <div id="data">
         <div id="morning" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">
             <div class=" flex items-center">
-                <div class="text-[50px] font-bold">9°</div>
-                <div class="text-[15px] font-medium hidden md:inline self-end">8°/14°</div>
+                <div class="flex flex-row">
+                <div class="text-[50px] font-bold">00°</div>
+                    <div class="text-[15px] font-bold hidden md:inline self-start">8°/14°</div>
+            </div>
             </div>
             <div class="flex flex-col justify-center">
                 <div class="flex">
-                    <img src="./img/rain.png" alt="" class="w-[30px]">: 40 mm/h
+                    <img src="./img/rain.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Niederschlag</div>
+                    <div>: 40 mm/h</div>
                 </div>
                 <div class="flex">
-                    <img src="./img/humidity.png" alt="" class="w-[30px]">: 40%
+                    <img src="./img/humidity.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>
+                    <div>: 40%</div>
                 </div>
             </div>
-            <div class="flex flex-col items-center md:absolute md:top-0">
+            <div class="flex flex-col items-end w-[30vw]">
                 <div class="text-[25px] font-black">Morgens</div>
+                <img src="./img/sun.png" alt="" srcset="" class="w-[60px]">
+            </div>
+        </div>
+        <div id="noon" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">
+            <div class=" flex items-center">
+                <div class="flex flex-row">
+                <div class="text-[50px] font-bold">00°</div>
+                    <div class="text-[15px] font-bold hidden md:inline self-start">8°/14°</div>
+            </div>
+            </div>
+            <div class="flex flex-col justify-center">
+                <div class="flex">
+                    <img src="./img/rain.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Niederschlag</div>
+                    <div>: 40 mm/h</div>
+                </div>
+                <div class="flex">
+                    <img src="./img/humidity.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>
+                    <div>: 40%</div>
+                </div>
+            </div>
+            <div class="flex flex-col items-end w-[30vw]">
+                <div class="text-[25px] font-black">Mittags</div>
+                <img src="./img/sun.png" alt="" srcset="" class="w-[60px]">
+            </div>
+        </div>
+        <div id="afternoon" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">
+            <div class=" flex items-center">
+                <div class="flex flex-row">
+                <div class="text-[50px] font-bold">00°</div>
+                    <div class="text-[15px] font-bold hidden md:inline self-start">8°/14°</div>
+            </div>
+            </div>
+            <div class="flex flex-col justify-center">
+                <div class="flex">
+                    <img src="./img/rain.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Niederschlag</div>
+                    <div>: 40 mm/h</div>
+                </div>
+                <div class="flex">
+                    <img src="./img/humidity.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>
+                    <div>: 40%</div>
+                </div>
+            </div>
+            <div class="flex flex-col items-end w-[30vw]">
+                <div class="text-[25px] font-black">Nachmittags</div>
+                <img src="./img/sun.png" alt="" srcset="" class="w-[60px]">
+            </div>
+        </div>
+        <div id="evening" class="bg-white h-auto w-[90vw] md:w-[70vw] rounded-[20px] m-2 border-solid border-black border-[2px] flex justify-evenly relative p-3">
+            <div class=" flex items-center">
+                <div class="flex flex-row">
+                <div class="text-[50px] font-bold">00°</div>
+                    <div class="text-[15px] font-bold hidden md:inline self-start">8°/14°</div>
+            </div>
+            </div>
+            <div class="flex flex-col justify-center">
+                <div class="flex">
+                    <img src="./img/rain.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Niederschlag</div>
+                    <div>: 40 mm/h</div>
+                </div>
+                <div class="flex">
+                    <img src="./img/humidity.png" alt="" class="w-[30px]">
+                    <div class="hidden lg:inline">&nbsp Luftfeuchtigkeit</div>
+                    <div>: 40%</div>
+                </div>
+            </div>
+            <div class="flex flex-col items-end w-[30vw]">
+                <div class="text-[25px] font-black">Abends</div>
                 <img src="./img/sun.png" alt="" srcset="" class="w-[60px]">
             </div>
         </div>
         
         
-        
+    </div>
     </div>
 </body>
 </html>
